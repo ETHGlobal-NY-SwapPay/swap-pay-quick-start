@@ -1,47 +1,20 @@
-import { useState, type JSX } from "react";
-import { useAccount, useSendCalls, useWalletClient } from "wagmi";
-import { type Address, type Hex } from "viem";
-import confetti from "canvas-confetti";
+import { type JSX } from "react";
+import { useSendCalls, useWalletClient } from "wagmi";
 import { usePixelCounterNFT } from "../../../../hooks/contracts/pixel-counter-nft";
 
 export function NFT(): JSX.Element {
   // hooks
-  const [loading, setLoading] = useState(false);
 
   // external hooks
-  const { address } = useAccount();
   const { data: walletClient } = useWalletClient();
   const { error: useSendCallsError } = useSendCalls();
 
-  const { uri, buyNFT: buyNFTHook, reFetch } = usePixelCounterNFT(walletClient);
-  const { mutate: buyNFT, isPending: isBuyingNFT } = buyNFTHook;
+  const { uri, buyNFT: buyNFTHook } = usePixelCounterNFT(walletClient);
+  const { isPending: isBuyingNFT } = buyNFTHook;
 
   console.log("isBuyingNFT:", isBuyingNFT);
 
   // hooks
-
-  // functions
-  const onBuyNFT = async () => {
-    setLoading(true);
-    buyNFT(
-      {
-        to: address as Address,
-        token: "0x2F25deB3848C207fc8E0c34035B3Ba7fC157602B", // Celo Alfajores USDC
-      },
-      {
-        onSuccess: async (hash: Hex) => {
-          await reFetch();
-          confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-          alert(`✅ NFT purchased successfully! Hash: ${hash}`);
-          setLoading(false);
-        },
-        onError: (error) => {
-          alert(`❌ Error purchasing NFT: ${error.message}`);
-          setLoading(false);
-        },
-      }
-    );
-  };
 
   return (
     <div className="flex flex-col justify-center items-center space-y-6">
