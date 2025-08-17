@@ -63,13 +63,6 @@ export function NFT(): JSX.Element {
               className="w-64 h-64 object-cover rounded"
             />
             {/* <p className="w-1/2 s text-gray-600">{uri.description}</p> */}
-            <button
-              className="bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50"
-              onClick={onBuyNFT}
-              disabled={!address || loading || isBuyingNFT}
-            >
-              Purchase NFT
-            </button>
           </div>
         ) : (
           <p className="text-gray-500">No URI available</p>
