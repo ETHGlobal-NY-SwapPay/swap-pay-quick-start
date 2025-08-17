@@ -1,0 +1,73 @@
+type ChainlinkDataFeed = {
+  name: string;
+  contractAddress?: string;
+  priceFeedAddress: string;
+  priceFeedDecimals: number;
+  tokenDecimals: number;
+  type: "native" | "wrapped" | "stablecoin" | "utility";
+  description: string;
+  logo: string;
+};
+
+export const chainlinkDataFeedsSepolia: ChainlinkDataFeed[] = [
+  {
+    name: "ETH",
+    contractAddress: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    priceFeedAddress: "0x694AA1769357215DE4FAC081bf1f309aDC325306",
+    priceFeedDecimals: 8,
+    tokenDecimals: 18,
+    type: "native",
+    description: "Native ETH for gas - no contract address needed",
+    logo: "https://token-icons.s3.amazonaws.com/eth.png",
+  },
+  {
+    name: "WBTC",
+    contractAddress: "0xBf4ED0f867CFf7af2acFa4F727ef43EB89C4C195",
+    priceFeedAddress: "0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43",
+    priceFeedDecimals: 8,
+    tokenDecimals: 8,
+    type: "wrapped",
+    description: "Wrapped Bitcoin (WBTC) on Sepolia",
+    logo: "https://coin-images.coingecko.com/coins/images/7598/large/wrapped_bitcoin_wbtc.png?1696507857",
+  },
+  {
+    name: "DAI",
+    contractAddress: "0x5aBa799fFDFc52785EFC073E11D4671a4186F3d8",
+    priceFeedAddress: "0x14866185B1962B63C3Ea9E03Bc1da838bab34C19",
+    priceFeedDecimals: 8,
+    tokenDecimals: 18,
+    type: "stablecoin",
+    description: "MakerDAO stablecoin",
+    logo: "https://coin-images.coingecko.com/coins/images/9956/large/Badge_Dai.png?1696509996",
+  },
+  {
+    name: "USDC",
+    contractAddress: "0xdC02992BD2700966775fDDd9ee1d8758B3Af24C5",
+    priceFeedAddress: "0xA2F78ab2355fe2f984D808B5CeE7FD0A93D5270E",
+    priceFeedDecimals: 8,
+    tokenDecimals: 6,
+    type: "stablecoin",
+    description: "USD Coin stablecoin",
+    logo: "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
+  },
+  {
+    name: "LINK",
+    contractAddress: "0xd76ff4D27F5D56e24B3764e08Ffd7052006B10B1",
+    priceFeedAddress: "0xc59E3633BAAC79493d908e63626716e204A45EdF",
+    priceFeedDecimals: 8,
+    tokenDecimals: 18,
+    type: "utility",
+    description: "Chainlink oracle token",
+    logo: "https://coin-images.coingecko.com/coins/images/877/large/chainlink-new-logo.png?1696502009",
+  },
+  {
+    name: "WSTETH",
+    contractAddress: "0x33e3BDE50A20946FFb2e2f2C6A9C4Cb291A90cfE",
+    priceFeedAddress: "0xaaabb530434B0EeAAc9A42E25dbC6A22D7bE218E",
+    priceFeedDecimals: 8,
+    tokenDecimals: 18,
+    type: "wrapped",
+    description: "Wrapped Staked ETH token (WSTETH)",
+    logo: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
+  },
+];

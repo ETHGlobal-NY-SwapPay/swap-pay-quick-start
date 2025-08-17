@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./App.css";
+import "./globals.css";
 import App from "./App.tsx";
 import RainbowKitConfig from "./config/RainbowKitProvider.tsx";
 
