@@ -40,6 +40,9 @@ export function Assets(): JSX.Element {
   const [loading, setLoading] = useState(false);
   const { sendCallsAsync } = useSendCalls();
 
+  console.log("isSuccess:", isSuccess);
+  console.log("id:", id);
+
   // ===== config =====
   const PRICE_DECIMALS = 8; // Chainlink USD feeds
   const TOL = 0.01;
